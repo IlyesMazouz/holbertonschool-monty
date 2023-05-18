@@ -40,5 +40,6 @@ void push_element(stack_t **stack, unsigned int line_number);
 void pall_elements(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t **stack);
+void pop(stack_t **stack, unsigned int line_number);
 
 #endif
