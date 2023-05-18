@@ -9,15 +9,27 @@
 
 void add(stack_t **stack, unsigned int line_number)
 {
-	if (*stack == NULL || (*stack)->next == NULL)
-	{
-		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+    if (*stack == NULL || (*stack)->next == NULL)
+    {
+        fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+        exit(EXIT_FAILURE);
+    }
 
-	stack_t *top = *stack;
-	*stack = (*stack)->next;
-	(*stack)->n += top->n;
-	(*stack)->prev = NULL;
-	free(top);
+    stack_t *top = *stack;
+    *stack = (*stack)->next;
+    (*stack)->n += top->n;
+    (*stack)->prev = NULL;
+    free(top);
+}
+
+/**
+ * nop - The opcode nop doesn’t do anything
+ * @stack: a double pointer
+ * @line_number: an unsigned integer
+ */
+
+void nop(stack_t **stack, unsigned int line_number)
+{
+    (void)stack;
+    (void)line_number;
 }
