@@ -1,14 +1,12 @@
 #include "monty.h"
-#include "stdio.h"
-#include "stdlib.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- *main - main function of the monty programme
- *@argc: number of command-line arguments
- *@argv: array of command-line argument strings
- *Return: EXIT_SUCCES or EXIT_FAILURE
+ * main - main function of the monty program
+ * @argc: number of command-line arguments
+ * @argv: array of command-line argument strings
  */
-
 int main(int argc, char *argv[])
 {
 	if (argc != 2)
@@ -16,6 +14,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Usage: monty file\n");
 		return (EXIT_FAILURE);
 	}
+
 	FILE *file = fopen(argv[1], "r");
 	if (file == NULL)
 	{
@@ -46,12 +45,14 @@ int main(int argc, char *argv[])
 		else
 		{
 			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
+			free_stack(&stack);
 			free(line);
 			fclose(file);
 			return (EXIT_FAILURE);
 		}
 		line_number++;
 	}
+
 	free_stack(&stack);
 	free(line);
 	fclose(file);
