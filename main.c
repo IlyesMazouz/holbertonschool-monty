@@ -50,6 +50,7 @@ return (EXIT_FAILURE);
 }
 line_number++;
 }
+free_stack(&stack);
 free(line);
 fclose(file);
 return (EXIT_SUCCESS);
