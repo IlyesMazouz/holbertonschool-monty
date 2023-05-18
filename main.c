@@ -37,6 +37,10 @@ else if (opcode != NULL && strcmp(opcode, "pall") == 0)
 {
 pall_elements(&stack, line_number);
 }
+else if (opcode != NULL && strcmp(opcode, "pint") == 0)
+{
+pint(&stack, line_number);
+}
 else
 {
 fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
