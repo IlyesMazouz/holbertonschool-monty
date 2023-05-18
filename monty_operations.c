@@ -10,10 +10,8 @@
 
 void push_element(stack_t **stack, unsigned int line_number)
 {
-	char *arg = NULL;
-
-	arg = strtok(NULL, " \n\r\t");
-	if (arg == NULL)
+	char *arg = strtok(NULL, " \n\r\t");
+	if (arg == NULL || !is_number(arg))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
@@ -37,6 +35,7 @@ void push_element(stack_t **stack, unsigned int line_number)
 		*stack = node;
 	}
 }
+
 
 /**
  *pall_elements - The opcode pall prints all the values on the stack
