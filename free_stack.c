@@ -1,20 +1,20 @@
 #include "monty.h"
 /**
-*free_stack - freeing memory allocation after use 
-*@stack: a double pointer
-*/
+ *free_stack - freeing memory allocation after use
+ *@stack: a double pointer
+ */
 
 void free_stack(stack_t **stack)
 {
-    stack_t *current = *stack;
-    stack_t *next;
+	stack_t *current = *stack;
+	stack_t *next;
 
-    while (current != NULL)
-    {
-        next = current->next;
-        free(current);
-        current = next;
-    }
+	while (current != NULL)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
 
-    *stack = NULL;
+	*stack = NULL;
 }
