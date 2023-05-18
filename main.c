@@ -31,25 +31,28 @@ int main(int argc, char *argv[])
 	while (getline(&line, &line_size, file) != -1)
 	{
 		char *opcode = strtok(line, " \t\n");
-		if (opcode != NULL && strcmp(opcode, "push") == 0)
+		if (opcode != NULL)
 		{
-			push_element(&stack, line_number);
-		}
-		else if (opcode != NULL && strcmp(opcode, "pall") == 0)
-		{
-			pall_elements(&stack, line_number);
-		}
-		else if (opcode != NULL && strcmp(opcode, "pint") == 0)
-		{
-			pint(&stack, line_number);
-		}
-		else
-		{
-			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
-			free_stack(&stack);
-			free(line);
-			fclose(file);
-			return (EXIT_FAILURE);
+			if (strcmp(opcode, "push") == 0)
+			{
+				push_element(&stack, line_number);
+			}
+			else if (strcmp(opcode, "pall") == 0)
+			{
+				pall_elements(&stack, line_number);
+			}
+			else if (strcmp(opcode, "pint") == 0)
+			{
+				pint(&stack, line_number);
+			}
+			else
+			{
+				fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
+				free_stack(&stack);
+				free(line);
+				fclose(file);
+				return (EXIT_FAILURE);
+			}
 		}
 		line_number++;
 	}
