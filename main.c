@@ -53,6 +53,10 @@ int main(int argc, char *argv[])
 			{
 				swap(&stack, line_number);
 			}
+			else if (strcmp(opcode, "add") == 0)
+			{
+				add(&stack, line_number);
+			}
 
 			else
 			{
