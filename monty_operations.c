@@ -1,6 +1,6 @@
 #include "monty.h"
-
-#include "monty.h"
+#include "stdio.h"
+#include "stdlib.h"
 
 /**
 *push_element - The opcode push pushes an element to the stack
