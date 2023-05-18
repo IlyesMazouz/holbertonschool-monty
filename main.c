@@ -6,6 +6,7 @@
  * main - main function of the monty program
  * @argc: number of command-line arguments
  * @argv: array of command-line argument strings
+ * Return: EXIT_SUCCES or EXIT_FAILURE
  */
 int main(int argc, char *argv[])
 {
